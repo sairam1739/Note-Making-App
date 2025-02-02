@@ -114,6 +114,12 @@ const TextEditor = ({
     }
   }, [dispatch, user, editor]);
 
+  const styles = {
+    borderBottom: "5px solid #1971c2",
+    paddingBottom:"15px"
+};
+
+
   return (
     <>
       <Flex align={"center"} justify={"space-between"} mt={10}>
@@ -163,7 +169,7 @@ const TextEditor = ({
           mt={25}
           sx={{ display: "flex", justifyContent: "center" }}
           p={0}
-          style={{ border: "none" }}
+          style={styles}
           onClick={() => setContent(editor.getHTML())}
         >
           <RichTextEditor.ControlsGroup>

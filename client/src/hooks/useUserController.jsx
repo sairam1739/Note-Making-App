@@ -2,10 +2,12 @@ import { useState } from "react"
 import useAuthContext from './useAuthContext';
 import axios from "axios"
 import Notify from "../utils/notificationHelper";
+import { useNavigate } from "react-router-dom";
 
 function useUserController() {
   const { dispatch } = useAuthContext()
   const [loading, setLoading] = useState(false)
+  const navigate = useNavigate();
 
   const signup = async (email, password) => {
     setLoading(true)
@@ -50,6 +52,7 @@ function useUserController() {
     forced ? null : Notify("Bye", "You were sucessfully logged out", true)
     localStorage.removeItem("user")
     dispatch({ type: "LOGOUT"})
+    navigate("/home");
   }
   
   return { signup, login, logout, loading }
