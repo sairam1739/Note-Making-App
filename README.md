@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # DigiDiary - A Note Taking App 📝
 
 ![Hero Page Image](https://github.com/anav5704/Note-App-MERN/blob/main/client/public/docs/note-mern.png)
@@ -96,3 +97,6 @@ Special thanks to Aaryan, Danvil, Ilisoni, Indeevar, Mesake, Rohan, Veer, and Ve
 - [MERN stack full tutorial and project](https://www.youtube.com/watch?v=CvCiNeLnZ00)
 - [MVC pattern explained in Node JS](https://www.youtube.com/watch?v=bQuBlR0T5cc)
 - [MongoDB in 100 seconds](https://www.youtube.com/watch?v=-bt_y4Loofg)
+=======
+# Note-Making-App
+>>>>>>> e81400578133d8bc7411aa54eebbd635d82eeec1
