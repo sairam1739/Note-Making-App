@@ -1,18 +1,19 @@
-import { Container } from '@mantine/core';
-import { useParams } from 'react-router-dom';
-import useNoteController from '../hooks/useNoteController';
-import TextEditor from '../components/TextEditor';
+import { Container } from "@mantine/core";
+import { useParams } from "react-router-dom";
+import useNoteController from "../hooks/useNoteController";
+import TextEditor from "../components/TextEditor";
 
 const Update = () => {
-  const { updateNote, loading, deleteNote, deleteLoading } = useNoteController()
-  const { id } = useParams()
+  const { updateNote, loading, deleteNote, deleteLoading } =
+    useNoteController();
+  const { id } = useParams();
 
   async function handleUpdate(title, content) {
-    await updateNote(title, content, id)
+    await updateNote(title, content, id);
   }
 
   async function handleDelete(id) {
-    await deleteNote(id)
+    await deleteNote(id);
   }
 
   return (
@@ -25,7 +26,7 @@ const Update = () => {
         handleDelete={handleDelete}
       />
     </Container>
-  )
-}
+  );
+};
 
-export default Update
+export default Update;

@@ -11,11 +11,12 @@ function useUserController() {
     setLoading(true)
 
     try {
-      const response = await axios.post("https://digidiary.onrender.com/api/users/signup", { email, password })
+      const response = await axios.post("http://localhost:5000/api/users/signup", { email, password })
       const json = await response.data
 
       Notify("Congratulations", "You were successfuly registered", true)
       localStorage.setItem("user", JSON.stringify(json))
+      
       dispatch({ type: "LOGIN", payload: json })
     }
     catch (err) {
@@ -30,7 +31,7 @@ function useUserController() {
     setLoading(true)
 
     try {
-      const response = await axios.post("https://digidiary.onrender.com/api/users/login", { email, password })
+      const response = await axios.post("http://localhost:5000/api/users/login", { email, password })
       const json = await response.data
 
       Notify('Welcome back!', "You were successfully logged in", true)

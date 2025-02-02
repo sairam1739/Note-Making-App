@@ -33,5 +33,4 @@ const NotesConetextProvider = ({ children }) => {
     </noteContext.Provider>
   )
 }
-
 export { noteContext, NotesConetextProvider, noteReducer }

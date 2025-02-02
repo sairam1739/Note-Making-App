@@ -22,7 +22,7 @@ function listener(req, res, next) {
 
 async function Start() {
     try {
-        mongoose.connect(process.env.MONGO)
+        mongoose.connect(process.env.MONGO_URI).then(() => console.log("MongoDB connected")).catch(err => console.error("MongoDB connection error:", err));
         app.listen(process.env.PORT, () => {
             console.log(`Server started on port ${process.env.PORT}`)
         })
@@ -31,5 +31,4 @@ async function Start() {
         console.log("Server start error", err)
     }
 }
-
 Start()

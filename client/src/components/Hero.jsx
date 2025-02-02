@@ -83,11 +83,11 @@ function Hero() {
     <Container   >
       <div className={classes.inner}>
         <Title className={classes.title}>
-          Ready To{' '}
+         
           <Text component="span" className={classes.highlight} inherit>
-            Take Notes
+            Get Ready To Take Notes
           </Text>{' '}
-          Like A Pro?
+         
         </Title>
 
         <Container p={0} size={600} >
@@ -109,39 +109,7 @@ function Hero() {
           </Link>
 
         </Container>
-      </div>
-      <Center maw={400} h={100} mx="auto">
-        <Tooltip.Group openDelay={300} closeDelay={100} >
-          <Avatar.Group spacing="sm" >
-            <Tooltip label="Tuna" withArrow color="gray" position="bottom">
-              <Avatar src="/images/sake.jpg" radius="xl" />
-            </Tooltip>
-            <Tooltip label="Bear" withArrow color="gray" position="bottom">
-              <Avatar src="/images/rohan.jpg" radius="xl" />
-            </Tooltip>
-            <Tooltip label="Deaf" withArrow color="gray" position="bottom">
-              <Avatar src="images/veer.jpg" radius="xl" />
-            </Tooltip>
-            <Tooltip label="Blind" withArrow color="gray" position="bottom">
-              <Avatar src="/images/anav.jpg" radius="xl" />
-            </Tooltip>
-            <Tooltip label="Kundi" withArrow color="gray" position="bottom">
-              <Avatar src="images/indee.jpg" radius="xl" />
-            </Tooltip>
-            <Tooltip
-              withArrow color="gray" position="bottom"
-              label={
-                <>
-                  <div>Soni, Dan,</div>
-                  <div>Vet, Rud, Aaryan</div>
-                </>
-              }
-            >
-              <Avatar radius="xl">+5</Avatar>
-            </Tooltip>
-          </Avatar.Group>
-        </Tooltip.Group>
-      </Center>
+      </div>   
     </Container>
 
   );

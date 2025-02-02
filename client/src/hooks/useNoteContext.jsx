@@ -10,5 +10,4 @@ const useNoteContext = () => {
     
     return context
 }
-
 export default useNoteContext

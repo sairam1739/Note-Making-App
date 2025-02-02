@@ -22,5 +22,4 @@ const useNotePreferences = () => {
       
   return { handleSortCriteria, sortCriteria, handleSortBy, sortBy, handleLayout, gridLayout }
 }
-
 export default useNotePreferences

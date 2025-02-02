@@ -1,5 +1,6 @@
 import { noteModel } from "../models/noteModel.js"
 import mongoose from "mongoose"
+import multer from "multer";
 
 const checkMissingFields = (req) => {
     const { title, content } = req.body
@@ -61,12 +62,27 @@ const getOneNote = async (req, res) => {
     }
 }
 
+// Configure multer to store audio files in "uploads/"
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "uploads/");
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + "-" + file.originalname);
+    },
+});
+const upload = multer({ storage });
+
+
 const createNote = async (req, res) => {
     const { title, content } = req.body
+    const audioFile = req.file ? req.file.path : null; 
     try {
         checkMissingFields(req)
         const id = req.user._id
-        const note = await noteModel.create({ title, content, owner: id })
+        const note = await noteModel.create({ title, content, audioFile,  owner: id })
+         // Save the note explicitly
+          // Ensures the document is saved in MongoDB
         res.status(200).json(note)
     }
     catch (err) {
@@ -116,5 +132,4 @@ const deleteNote = async (req, res) => {
         res.status(400).json(err.message)
     }
 }
-
-export { getAllNotes, getOneNote, createNote, updateNote, deleteNote }
+export { getAllNotes, getOneNote, createNote, updateNote, deleteNote, upload }

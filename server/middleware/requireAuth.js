@@ -22,5 +22,4 @@ const requireAuth = async (req, res, next) => {
             res.status(401).json({ error: "Request not suthorized" })
     }
 }
-
 export default requireAuth
