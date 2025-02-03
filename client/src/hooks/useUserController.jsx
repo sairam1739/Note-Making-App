@@ -46,6 +46,8 @@ function useUserController() {
       localStorage.setItem("user", JSON.stringify(json));
       dispatch({ type: "LOGIN", payload: json });
     } catch (err) {
+      const errorMessage =
+        err?.response?.data || err.message || "An error occurred during login.";
       Notify("Oops!, something went wrong", err.response.data, false);
     } finally {
       setLoading(false);

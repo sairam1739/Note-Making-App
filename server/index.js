@@ -1,10 +1,11 @@
-dotenv.config()
 import express from "express"
 import mongoose from "mongoose"
 import cors from "cors"
 import dotenv from "dotenv"
 import noteRoutes from "./routes/noteRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
+
+dotenv.config()
 
 // Your backend URL (from Vercel for production)
 const allowedOrigins = [
@@ -27,7 +28,6 @@ app.use(cors({
     },
   }));
 
-app.use(cors())
 app.use(express.json())
 app.use(listener)
 
