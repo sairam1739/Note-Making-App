@@ -18,11 +18,13 @@ function useNoteController() {
   const [deleteLoading, setDeleteLoading] = useState(false);
   const navigate = useNavigate();
 
+  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000"; // Fallback to local for development
+
   const getAllNotes = async (sortCriteria, sortBy) => {
     setDataLoading(true);
 
     try {
-      const response = await axios.get("http://localhost:5000/api/notes", {
+      const response = await axios.get(`${apiUrl}/api/notes`, {
         params: { sortCriteria, sortBy },
         headers,
       });
@@ -46,7 +48,7 @@ function useNoteController() {
   const getOneNote = async (id, setTitle, setContent, editor) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/notes/${id}`,
+        `${apiUrl}/api/notes/${id}`,
         headerConfig
       );
       const json = await response.data;
@@ -72,17 +74,12 @@ function useNoteController() {
     }
 
     try {
-
-      const response = await axios.post(
-        "http://localhost:5000/api/notes/",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            ...headerConfig.headers,
-          },
-        }
-      );
+      const response = await axios.post(`${apiUrl}/api/notes/`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          ...headerConfig.headers,
+        },
+      });
       const json = await response.data;
 
       dispatch({ type: "CREATE_NOTE", payload: json });
@@ -100,7 +97,7 @@ function useNoteController() {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/notes/${id}`,
+        `${apiUrl}/api/notes/${id}`,
         { title, content },
         headerConfig
       );
@@ -122,7 +119,7 @@ function useNoteController() {
 
     try {
       const response = await axios.delete(
-        `http://localhost:5000/api/notes/${id}`,
+        `${apiUrl}/api/notes/${id}`,
         headerConfig
       );
       const json = await response.data;
