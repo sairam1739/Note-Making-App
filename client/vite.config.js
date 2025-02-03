@@ -36,5 +36,9 @@ export default defineConfig({
         ]
       }
     })
-  ],
+  ],server: {
+    proxy: {
+      "/api": "https://my-note-making-gase7o7n5-sai-rams-projects-0db564e9.vercel.app",
+    },
+  },
 })
