@@ -16,17 +16,19 @@ const allowedOrigins = [
 const app = express()
 const PORT = process.env.PORT || 4000;
 
-// Enable CORS with specific origins
+// Enable CORS for preflight requests and actual requests
 app.use(cors({
-    origin: function(origin, callback) {
-      // Allow requests with no origin (like mobile apps or Postman)
-      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-        return callback(null, true);
-      } else {
-        return callback(new Error('Not allowed by CORS'));
-      }
-    },
-  }));
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Add supported methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Add allowed headers
+  credentials: true, // Allow credentials (cookies, authorization headers)
+}));
 
 app.use(express.json())
 app.use(listener)
