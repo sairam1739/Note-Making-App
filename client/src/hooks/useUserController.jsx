@@ -9,7 +9,7 @@ function useUserController() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000"; // Fallback to local for development
+  const apiUrl = "http://localhost:5000"; // Fallback to local for development
 
   const signup = async (email, password) => {
     setLoading(true);

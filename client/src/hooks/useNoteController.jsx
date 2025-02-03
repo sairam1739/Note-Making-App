@@ -18,7 +18,7 @@ function useNoteController() {
   const [deleteLoading, setDeleteLoading] = useState(false);
   const navigate = useNavigate();
 
-  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000"; // Fallback to local for development
+  const apiUrl = "http://localhost:5000"; // Fallback to local for development
 
   const getAllNotes = async (sortCriteria, sortBy) => {
     setDataLoading(true);
