@@ -9,7 +9,7 @@ dotenv.config()
 
 // Your backend URL (from Vercel for production)
 const allowedOrigins = [
-    'https://note-making-hs5mkyx72-sai-rams-projects-0db564e9.vercel.app',  // frontend URL (production)
+    'https://note-making-ay7k6gl0h-sai-rams-projects-0db564e9.vercel.app',  // frontend URL (production)
     'http://localhost:5173',  // frontend URL (for local development)
   ];
 
